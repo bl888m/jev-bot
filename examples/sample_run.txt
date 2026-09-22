@@ -1,0 +1,61 @@
+$ jev-bot decisions
+
+==================================================================
+  JEV-BOT  ·  market decisions by JEV
+------------------------------------------------------------------
+  DATA        sim (8 assets)
+  DECISION    offline (deterministic)
+  EXECUTION   paper
+  PERFORMANCE simulated
+==================================================================
+  ASSET   CLASS    JEV      PROB   CONF   VERDICT
+------------------------------------------------------------------
+  ETH     crypto  BUY   up   95%   91%   EXEC
+  AAPL    stock   BUY   up   96%   92%   EXEC
+  SOL     crypto  BUY   up   89%   84%   EXEC
+  DOGE    meme    AVOID x    92%   87%   skip · AVOID does not execute
+  HOOD    stock   HOLD  --   50%   46%   skip · HOLD does not execute
+  GME     meme    AVOID x    91%   86%   skip · AVOID does not execute
+  BTC     crypto  BUY   up   96%   92%   EXEC
+  NVDA    stock   BUY   up   82%   77%   EXEC
+
+
+$ jev-bot run
+
+  NVDA    stock   BUY   up   82%   77%   EXEC
+
+==================================================================
+  PAPER BOOK
+------------------------------------------------------------------
+  equity     $ 10,000.00   (+0.00%)
+  open P&L   $     +0.00
+  positions           5
+------------------------------------------------------------------
+    BUY  ETH    $1,000     +0.00
+    BUY  AAPL   $1,000     +0.00
+    BUY  SOL    $1,000     +0.00
+    BUY  BTC    $1,000     +0.00
+    BUY  NVDA   $1,000     +0.00
+==================================================================
+  paper only · JEV decides, execution is simulated · not advice
+
+
+$ jev-bot card BTC
+
+==================================================================
+  BTC  ·  crypto  ·  $1,793.71
+------------------------------------------------------------------
+  MARKET STATE
+    24h             +4.72%
+    volume           +114%
+    momentum         +0.58
+    news             +0.31
+    regime         neutral
+------------------------------------------------------------------
+  JEV OUTPUT  (offline)
+    decision           BUY
+    probability       0.95
+    confidence        0.92
+------------------------------------------------------------------
+  GATE           EXECUTE
+==================================================================
