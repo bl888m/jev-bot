@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/logo.png" width="128" alt="jev-bot logo">
-</p>
-
 ![jev-bot](assets/banner.png)
 
 # jev-bot
@@ -19,7 +15,7 @@
 Most AI is built to generate text. [JEV](https://typesafe.ai/blog/introducing-system-one-models-and-jev),
 TypeSafe AI's first System One model, is built to decide: you hand it a state
 and a typed question with fixed options, and it returns one option with a
-calibrated probability in about a tenth of a second, no text to parse. reflex
+calibrated probability in about a tenth of a second, no text to parse. jev-bot
 is a small, open experiment around that idea. It gives JEV a stream of market
 states and asks one question, over and over: what is the right action here.
 
@@ -62,11 +58,11 @@ Python 3.10 or newer. Nothing to compile, nothing to install for the core.
 
 ```bash
 git clone https://github.com/bl888m/jev-bot && cd jev-bot
-pip install -e .        # optional, to get the `reflex` command on PATH
+pip install -e .        # optional, to get the `jev-bot` command on PATH
 ```
 
 ```bash
-python -m jev-bot decisions   # or run in place, no install
+python -m jev_bot decisions   # or run in place, no install
 ```
 
 The core is standard library only. The one network path, `--engine jev`, uses
@@ -75,10 +71,10 @@ The core is standard library only. The one network path, `--engine jev`, uses
 ## Sixty seconds
 
 ```bash
-python -m jev-bot decisions          # state -> JEV -> risk, show the table
-python -m jev-bot run                # ... and execute the approved ones on paper
-python -m jev-bot card BTC           # unpack a single decision
-python -m jev-bot decisions --engine jev   # use the real JEV model (needs a key)
+python -m jev_bot decisions          # state -> JEV -> risk, show the table
+python -m jev_bot run                # ... and execute the approved ones on paper
+python -m jev_bot card BTC           # unpack a single decision
+python -m jev_bot decisions --engine jev   # use the real JEV model (needs a key)
 python tests.py                     # 17 checks, no network
 ```
 
@@ -151,7 +147,7 @@ purpose, and jev-bot keeps them in two different files.
 ## The two engines
 
 **offline** (default) is a small scoring function in
-[`jev_bot/jev.py`](reflex/jev.py). It turns the state features (momentum, 24h
+[`jev_bot/jev.py`](jev_bot/jev.py). It turns the state features (momentum, 24h
 change, volume, news, regime) into an action and two numbers, with every
 contribution readable. It exists so the loop runs with no key and is
 reproducible. It is labelled `offline` on every decision so it is never
@@ -184,10 +180,10 @@ Robinhood           the execution layer
 ```
 
 **JEV decides. Robinhood executes.** Robinhood's agentic-trading workflow
-supports equities, options and crypto, which is exactly the surface reflex
+supports equities, options and crypto, which is exactly the surface jev-bot
 targets. In this repo the execution layer is paper: it records fills and marks
 them and reaches no exchange. Going live means replacing one file,
-[`jev_bot/execution/paper.py`](reflex/execution/paper.py), with a real adapter,
+[`jev_bot/execution/paper.py`](jev_bot/execution/paper.py), with a real adapter,
 and that adapter is deliberately not shipped. Paper is the default and the only
 mode here.
 
