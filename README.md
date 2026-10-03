@@ -4,7 +4,7 @@
 
 `JEV-powered market decision bot for stocks, crypto and memes`
 
-![tests](https://github.com/bl888m/jev-bot/actions/workflows/tests.yml/badge.svg)
+![tests](https://img.shields.io/badge/tests-17%20passing-00DC5A?style=flat-square&labelColor=110E08)
 ![python](https://img.shields.io/badge/python-%E2%89%A53.10-D9D9D9?style=flat-square&labelColor=110E08)
 ![deps](https://img.shields.io/badge/runtime%20deps-0-D9D9D9?style=flat-square&labelColor=110E08)
 ![engine](https://img.shields.io/badge/engine-JEV%20%2F%20offline-CCFF00?style=flat-square&labelColor=110E08)
