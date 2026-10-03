@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/logo.png" width="128" alt="jev-bot logo">
-</p>
-
 ![jev-bot](assets/banner.png)
 
 # jev-bot
