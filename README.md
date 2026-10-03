@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" width="128" alt="jev-bot logo">
+</p>
+
 ![jev-bot](assets/banner.png)
 
 # jev-bot
@@ -15,7 +19,7 @@
 Most AI is built to generate text. [JEV](https://typesafe.ai/blog/introducing-system-one-models-and-jev),
 TypeSafe AI's first System One model, is built to decide: you hand it a state
 and a typed question with fixed options, and it returns one option with a
-calibrated probability in about a tenth of a second, no text to parse. jev-bot
+calibrated probability in about a tenth of a second, no text to parse. reflex
 is a small, open experiment around that idea. It gives JEV a stream of market
 states and asks one question, over and over: what is the right action here.
 
@@ -58,11 +62,27 @@ Python 3.10 or newer. Nothing to compile, nothing to install for the core.
 
 ```bash
 git clone https://github.com/bl888m/jev-bot && cd jev-bot
-pip install -e .        # optional, to get the `jev-bot` command on PATH
+pip install -e .        # optional, to get the `reflex` command on PATH
 ```
 
 ```bash
 python -m jev_bot decisions   # or run in place, no install
+```
+
+Or with the Makefile:
+
+```bash
+make install   # pip install -e .
+make test      # 17 checks, no network
+make decisions
+```
+
+Or with Docker, no local Python needed at all:
+
+```bash
+docker build -t jev-bot .
+docker run --rm jev-bot decisions
+docker run --rm jev-bot card BTC
 ```
 
 The core is standard library only. The one network path, `--engine jev`, uses
@@ -180,7 +200,7 @@ Robinhood           the execution layer
 ```
 
 **JEV decides. Robinhood executes.** Robinhood's agentic-trading workflow
-supports equities, options and crypto, which is exactly the surface jev-bot
+supports equities, options and crypto, which is exactly the surface reflex
 targets. In this repo the execution layer is paper: it records fills and marks
 them and reaches no exchange. Going live means replacing one file,
 [`jev_bot/execution/paper.py`](jev_bot/execution/paper.py), with a real adapter,
