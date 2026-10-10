@@ -15,7 +15,7 @@
 Most AI is built to generate text. [JEV](https://typesafe.ai/blog/introducing-system-one-models-and-jev),
 TypeSafe AI's first System One model, is built to decide: you hand it a state
 and a typed question with fixed options, and it returns one option with a
-calibrated probability in about a tenth of a second, no text to parse. reflex
+calibrated probability in about a tenth of a second, no text to parse. jev-bot
 is a small, open experiment around that idea. It gives JEV a stream of market
 states and asks one question, over and over: what is the right action here.
 
@@ -58,7 +58,7 @@ Python 3.10 or newer. Nothing to compile, nothing to install for the core.
 
 ```bash
 git clone https://github.com/bl888m/jev-bot && cd jev-bot
-pip install -e .        # optional, to get the `reflex` command on PATH
+pip install -e .        # optional, to get the `jev-bot` command on PATH
 ```
 
 ```bash
