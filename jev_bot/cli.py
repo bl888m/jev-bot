@@ -1,8 +1,8 @@
-"""reflex command line.
+"""jev-bot command line.
 
-    reflex decisions        one cycle: state -> JEV -> risk, show the table
-    reflex run              ... and execute the approved ones on paper
-    reflex card SYMBOL      unpack a single decision
+    jev-bot decisions        one cycle: state -> JEV -> risk, show the table
+    jev-bot run              ... and execute the approved ones on paper
+    jev-bot card SYMBOL      unpack a single decision
 
 Offline decision engine by default (no key, reproducible). Pass
 --engine jev with TYPESAFE_API_KEY set to use the real TypeSafe model.
@@ -47,7 +47,7 @@ def cmd_card(a):
     records = run(states, book, Limits(**_lim(a)), engine=a.engine)
     match = [r for r in records if r[0].symbol.upper() == a.symbol.upper()]
     if not match:
-        raise SystemExit(f"{a.symbol} not in this batch. try: reflex decisions")
+        raise SystemExit(f"{a.symbol} not in this batch. try: jev-bot decisions")
     print(render.decision_card(*match[0]))
 
 
