@@ -1,4 +1,4 @@
-"""reflex checks. No network, no dependencies. Run: python tests.py
+"""jev-bot checks. No network, no dependencies. Run: python tests.py
 
 Each check is one fact about the decision loop. The real JEV engine is not
 exercised here (it needs access and a key); the offline engine and the gate
